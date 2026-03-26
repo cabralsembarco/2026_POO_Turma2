@@ -1,0 +1,21 @@
+print("Digite uma data no formatato dd/mm/aaaa")
+s = input()
+data = s.split("/")
+dia = int(data[0])
+mes = int(data[1])
+ano = int(data[2])
+
+bissexto = (ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0)
+m = 31
+if mes in [4, 6, 9, 11]: 
+    m = 30
+if mes == 2:
+    if bissexto == True: 
+        m = 29
+    else:
+        m = 28
+# testa a data
+if dia >=1  and dia <= m and mes >= 1 and mes <= 12 and ano >= 1900 and ano <= 2100:
+    print("A data informada é válida")
+else:
+    print("A data informada é inválida")
