@@ -34,6 +34,9 @@ class ContatoUI:
         while op != 6:
             if op == 1: ContatoUI.inserir()
             if op == 2: ContatoUI.listar()
+            if op == 3: ContatoUI.atualizar()
+            if op == 4: ContatoUI.excluir()
+            if op == 5: ContatoUI.pesquisar()
 
     @staticmethod
     def menu():
@@ -54,3 +57,13 @@ class ContatoUI:
         if len(cls.contatos) == 0: print("Nenhum contato inserido")
         else:
             for x in cls.contatos: print(x)
+
+    @classmethod
+    def atualizar(cls):
+        id = int(input("Informe o ID do Contato a ser atualizado: "))
+        x = ContatoUI.listar_id(id)
+        if x != None:
+
+
+
+ContatoUI.main()
