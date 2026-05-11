@@ -48,7 +48,7 @@ class PaisUI:
     @staticmethod
     def main():
         op = 0
-        while op != 7:
+        while op != 3:
             op = PaisUI.menu()
             if op == 1: PaisUI.inserir()
             elif op == 2: PaisUI.listar()
@@ -93,7 +93,6 @@ class PaisUI:
     
         pais = cls.paises[att - 1]
     
-        # Atualizando dados
         nome = input("Novo nome: ")
         populacao = int(input("Nova população: "))
         area = float(input("Nova área: "))
@@ -127,7 +126,5 @@ class PaisUI:
         for i, pais in enumerate(cls.paises, start = 1):
             print(f"{pais.get_nome} é o mais populoso")
 
-
-            
 
 PaisUI.main()
