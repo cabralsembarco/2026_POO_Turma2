@@ -1,5 +1,3 @@
-Esse código está funcionando?:
-
 class Time:
     def __init__(self, id, nome, estado):
         self.id = id
@@ -68,7 +66,7 @@ class Jogador:
     
     def get_camisa(self):
         return self.camisa
-    
+
 class UI:
     times = []
     jogadores = []
@@ -79,24 +77,15 @@ class UI:
         j = 0
         while op != 3:
             op = UI.menu()
-            t = UI.menuT()
-            j = UI.menuJ()
             if op == 1: 
-                UI.menuT()
+                t = 0
                 while t != 6:
+                    t = UI.menuT()
                     if t == 1: UI.inserirT()
-                    elif t == 2: UI.listarT()
-                    elif t == 3: UI.atualizarT()
-                    elif t == 4: UI.excluirT()
-                    elif t == 5: UI.listar_jogadoresT()
-            elif op == 2: 
-                UI.menuJ()
-                while j != 6:
-                    if j == 1: UI.inserirJ()
-                    elif j == 2: UI.listarJ()
-                    elif j == 3: UI.atualizarJ()
-                    elif j == 4: UI.excluirJ()
-                    elif j == 5: UI.transferirJ()
+                    if t == 2: UI.listarT()
+                    if t == 3: UI.atualizarT()
+                    if t == 4: 
+            elif op == 2:
 
     @staticmethod
     def menu():
@@ -105,7 +94,8 @@ class UI:
     
     @staticmethod
     def menuT():
-        print("1-Inserir 2-Listar 3-Atualizar 4-Excluir 5-Jogadores")
+        if
+        print("1-Inserir 2-Listar 3-Atualizar 4-Excluir 5-Jogadores 6-Fim")
         return int(input("Escolha uma das ações: "))
     
     @classmethod
@@ -147,8 +137,42 @@ class UI:
         time.set_estado(estado)
 
         print("Time atualizado com sucesso")
+
+    @classmethod
+    def excluirT(cls):
+        if len(cls.times) == 0:
+            print("Nenhum time registrado")
+            return
+        for i, time in enumerate(cls.times):
+            print(f"{i} - {time.get_nome()}")
+        att = int(input("Escolha o time para excluir: "))
+        while att < 0 or att > len(cls.times):
+            att = int(input("Escolha um número válido: "))
+
+        removido = cls.times.pop(att - 1)
+
+        print(f"{removido.get_nome()} foi excluído")
+
+    @classmethod
+    def listar_jogadores(cls):
+        if len(cls.times) == 0:
+            print("Nenhum time registrado")
+            return
+        for i, time in enumerate(cls.times):
+            print(f"{i} - {time.get_nome()}")
+        att = int(input("Escolha um time para verificar: "))
+        while att < 0 or att > len(cls.times):
+            att = int(input("Escolha um número válido: "))
+        if len(cls.jogadores) == 0:
+            print("Nenhum jogador registrado")
+            return
+        else:
+            for i, jogador in enumerate(cls.jogadores):
+                print(f"{jogador.get_nome()}")
     
     @staticmethod
     def menuJ():
-        print("1-Inserir 2-Listar 3-Atualizar 4-Excluir 5-Transferir")
+        print("1-Inserir 2-Listar 3-Atualizar 4-Excluir 5-Transferir 6-Fim")
         return int(input("Escolha uma das ações: "))
+    
+UI.main()
