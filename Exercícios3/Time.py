@@ -15,7 +15,7 @@ class Time:
         self.nome = nome
 
     def set_estado(self, estado):
-        if not isinstance(nome, str):
+        if not isinstance(estado, str):
             raise ValueError("Nome inválido")
         self.estado = estado
 
@@ -27,6 +27,9 @@ class Time:
     
     def get_estado(self):
         return self.estado
+    
+    def __str__(self):
+        return f"{self.id} - {self.nome} | Estado: {self.estado} | Jogadores: "
     
 class Jogador:
     def __init__(self, id, idTime, nome, camisa):
@@ -82,10 +85,19 @@ class UI:
                 while t != 6:
                     t = UI.menuT()
                     if t == 1: UI.inserirT()
-                    if t == 2: UI.listarT()
-                    if t == 3: UI.atualizarT()
-                    if t == 4: 
+                    elif t == 2: UI.listarT()
+                    elif t == 3: UI.atualizarT()
+                    elif t == 4: UI.excluirT()
+                    elif t == 5: UI.listar_jogadores()
             elif op == 2:
+                j = 0
+                while j != 6:
+                    j = UI.menuJ()
+                    if j == 1: UI.inserirJ()
+                    elif j == 2: UI.listarJ()
+                    elif j == 3: UI.atualizarJ()
+                    elif j == 4: UI.excluirJ()
+                    elif j == 5: UI.transferirJ()
 
     @staticmethod
     def menu():
@@ -94,7 +106,6 @@ class UI:
     
     @staticmethod
     def menuT():
-        if
         print("1-Inserir 2-Listar 3-Atualizar 4-Excluir 5-Jogadores 6-Fim")
         return int(input("Escolha uma das ações: "))
     
@@ -102,7 +113,7 @@ class UI:
     def inserirT(cls):
         id = int(input("Digite o ID do time: "))
         nome = input("Digite o nome do time: ")
-        estado = input("Digite o ome do estado: ")
+        estado = input("Digite o nome do estado: ")
         x = Time(id, nome, estado)
         cls.times.append(x)
 
@@ -174,5 +185,14 @@ class UI:
     def menuJ():
         print("1-Inserir 2-Listar 3-Atualizar 4-Excluir 5-Transferir 6-Fim")
         return int(input("Escolha uma das ações: "))
+    
+    @classmethod
+    def inserirJ(cls):
+        id = int(input("Digite o ID do jogador: "))
+        nome = input("Digite o nome do jogador: ")
+        camisa = int(input("Informe o número da camisa: "))
+        idTime = int(input("Digite o ID do time do jogador: "))
+        if idTime 
+
     
 UI.main()
