@@ -37,4 +37,4 @@ for letra in palavra:
 
         resultado += letra + vogal_proxima + prox_consoante
 
-print("Resultado:", resultado)
+print(resultado)
