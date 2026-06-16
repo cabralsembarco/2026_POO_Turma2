@@ -133,7 +133,7 @@ class UI:
             return
         for i, time in enumerate(cls.times, start = 1):
             print(f"{i} - {time.get_nome()}")
-        att = int(input("Escolha o time par atualizar: "))
+        att = int(input("Escolha o time para atualizar: "))
         while att < 1 or att > len(cls.times):
             att = int(input("Escolha um número válido: "))
 
