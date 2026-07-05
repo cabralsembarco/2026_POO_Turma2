@@ -67,6 +67,13 @@ class ContatoUI:
         arquivo.close()
         print("O arquivo contatos.json foi salvo")
 
+    @classmethod
+    def abrir(cls):
+        try:
+            arquivo = open("contatos.json", mode = "r")
+            list_dic = json.load(arquivo)
+            
+
 
 
     
