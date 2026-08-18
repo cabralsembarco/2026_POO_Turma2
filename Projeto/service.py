@@ -20,6 +20,3 @@ class Service:
     @staticmethod
     def cliente_excluir(id):
         ClienteDAO().excluir(id)
-
-    @staticmethod
-    def 
