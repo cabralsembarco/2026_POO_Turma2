@@ -4,7 +4,7 @@ import streamlit as st
 
 class IndexUI:
     def main():
-        op = st.sidebar.selectbox("Menu", ["Clientes, "Serviços"])
+        op = st.sidebar.selectbox("Menu", ["Clientes", "Serviços"])
         if op == "Clientes": ManterClienteUI.main()
         if op == "Serviços": ManterServicoUI.main()
 
