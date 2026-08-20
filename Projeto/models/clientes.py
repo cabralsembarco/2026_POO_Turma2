@@ -34,7 +34,7 @@ class Cliente:
         return self.__fone
     
     def __str__(self):
-        return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}
+        return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}"
     
     def to_json(self):
         return { "id":self.__id, "nome":self.__nome, "email":self.__email, "fone":self.__fone }
