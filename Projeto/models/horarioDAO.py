@@ -1,5 +1,6 @@
 from models.horario import Horario
 import json
+
 class HorarioDAO:
     def __init__(self):
         self.__arquivo = "horarios.json"
