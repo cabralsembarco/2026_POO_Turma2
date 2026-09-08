@@ -52,3 +52,4 @@ class ProfissionalDAO:
     def __salvar(self):
         arquivo = open(self.__arquivo, mode = "w")
         json.dump(self.__objetos, arquivo, default = Profissional.to_json, indent = 2)
+        arquivo.close()
