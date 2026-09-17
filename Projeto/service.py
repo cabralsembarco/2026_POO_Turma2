@@ -33,10 +33,41 @@ class Service:
             if c.get_email() == "admin": return
         Service.cliente_listar("admin", "admin", "fone", "1234")
     @staticmethod
-    def cliente_autenticar():
+    def cliente_autenticar(email, senha):
         for c in Service.cliente_listar():
-            
+            if c.get_email() == email and c.get_senha() == senha:
+                return {"id": c.get_id(), "nome": c.get_nome()}
 
+
+
+    @staticmethod
+    def profissional_inserir(id, nome, email, esp, senha):
+        obj = Profissional(id, nome, email, esp, senha)
+        ProfissionalDAO().inserir(obj)
+    @staticmethod
+    def profissional_listar():
+        return ProfissionalDAO().listar()
+    @staticmethod
+    def profissional_listar_id(id):
+        return ProfissionalDAO().listar_id(id)
+    @staticmethod
+    def profissional_atualizar(id, nome, email, esp, senha):
+        obj = Profissional(id, nome, email, esp, senha)
+        ProfissionalDAO().atualizar(obj)
+    @staticmethod
+    def profissional_excluir(id):
+        ProfissionalDAO().excluir(id)
+    @staticmethod
+    def profissional_criar_admin():
+        for c in Service.profissional_listar():
+            if c.get_email() == "admin": return
+        Service.profissional_listar("admin", "admin", "esp", "1234")
+    @staticmethod
+    def profissional_autenticar(email, senha):
+        for c in Service.profissional_listar():
+            if c.get_email() == email and c.get_senha() == senha:
+                return {"id": c.get_id(), "nome": c.get_nome()}
+   
 
 
     @staticmethod

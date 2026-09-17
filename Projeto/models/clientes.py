@@ -45,11 +45,14 @@ class Cliente:
         return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone} - {self.__senha}"
     
     def to_json(self):
+        return { "id":self.__id, "nome":self.__nome, "email":self.__email, "fone":self.__fone, "senha":self.__senha}
+    
+    def to_dict(self):
         return { "id":self.__id, "nome":self.__nome, "email":self.__email, "fone":self.__fone}
     
     @staticmethod
     def from_json(dic):
-        return Cliente(dic["id"], dic["nome"], dic["email"], dic["fone"])
+        return Cliente(dic["id"], dic["nome"], dic["email"], dic["fone"], dic["senha"])
 
 # Sobrecarga de método
 
