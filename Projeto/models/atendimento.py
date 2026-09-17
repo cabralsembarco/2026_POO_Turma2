@@ -36,5 +36,26 @@ class Atendimento:
     def set_id_horario(self, id_horario):
         self.__id_horario = id_horario
 
+    def get_id(self): return self.__id
+    def get_data(self): return self.__data
+    def get_queixa_principal(self): return self.__queixa_principal
+    def get_historico_saude(self): return self.__historico_saude
+    def get_avaliacao(self): return self.__avaliacao
+    def get_prescricao(self): return self.__prescricao
+    def get_id_horario(self): return self.__id_horario
+
+    def to_json(self):
+        return { "id":self.__id, "data":self.__data, "queixa_principal":self.__queixa_principal, "historico_saude":self.__historico_saude, "avaliacao":self.__avaliacao, "prescricao":self.__prescricao,"id_horario":self.__id_horario }
+
+    @staticmethod
+    def from_json(dic):
+        atendimento = Atendimento(dic["id"], dt.strptime(dic["data"], "%d/%m/%Y %H:%M"))
+        atendimento.set_queixa_principal(dic["queixa_principal"])
+        atendimento.set_historico_saude(dic["historico_saude"])
+        atendimento.set_avaliacao(dic["avaliacao"])
+        atendimento.set_prescricao(dic["prescricao"])
+        atendimento.set_id_horario(dic["id_horario"])
+        return atendimento
+
         
         

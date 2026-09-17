@@ -18,6 +18,7 @@ class HorarioDAO:
 
     def listar(self):
         return self.__objetos
+    
     def listar_id(self, id):
         for obj in self.__objetos:
             if obj.get_id() == id: return obj

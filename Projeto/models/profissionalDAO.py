@@ -9,7 +9,7 @@ class ProfissionalDAO:
 
     def inserir(self, obj):
         id = 0
-        if len(self.__objetos) = 0:
+        if len(self.__objetos) == 0:
             for aux in self.__objetos:
                 if aux.get_id() > id: id = aux.get_id()
         obj.set_id(id + 1)
@@ -42,7 +42,7 @@ class ProfissionalDAO:
             arquivo = open(self.__arquivo, mode = "r")
             list_dic = json.load(arquivo)
             arquivo.close()
-            self.__objetos[]
+            self.__objetos = []
             for dic in list_dic:
                 obj = Profissional.from_json(dic)
                 self.__objetos.append(obj)
