@@ -11,6 +11,6 @@ class AbrirContaUI:
         senha = st.text_input("Informe a senha", type="password")
         if st.button("Inserir"):
             Service.cliente_inserir(nome, email, fone, senha)
-            st.sucess("Conta criada com sucesso")
+            st.success("Conta criada com sucesso")
             time.sleep(2)
             st.rerun()

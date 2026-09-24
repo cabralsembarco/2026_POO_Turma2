@@ -1,0 +1,16 @@
+[
+  {
+    "id": 0,
+    "nome": "admin",
+    "email": "admin",
+    "fone": "fone",
+    "senha": "1234"
+  },
+  {
+    "id": 0,
+    "nome": "Pedro Artur Oliveira Cabral",
+    "email": "pedroarturcabral12@gmail.com",
+    "fone": "(84) 98140-9191",
+    "senha": "Arthur12"
+  }
+]
