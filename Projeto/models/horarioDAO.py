@@ -14,7 +14,7 @@ class HorarioDAO:
                 if aux.get_id() > id: id = aux.get_id()
         obj.set_id(id + 1)
         self.__objetos.append(obj)
-        self.salvar()
+        self.__salvar()
 
     def listar(self):
         return self.__objetos

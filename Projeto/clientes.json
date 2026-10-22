@@ -19,5 +19,12 @@
     "email": "admin",
     "fone": "fone",
     "senha": "1234"
+  },
+  {
+    "id": 0,
+    "nome": "pedro",
+    "email": "pedro@gmail.com",
+    "fone": "84 0973-6133",
+    "senha": "Arthur12"
   }
 ]
