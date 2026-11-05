@@ -14,7 +14,16 @@ class Service:
     @staticmethod
     def cliente_inserir(nome, email, fone, senha):
         obj = Cliente(0, nome, email, fone, senha)
+        for e in ClienteDAO().listar():
+            if obj.get_email() == e.get_email():
+                raise ValueError("Este e-mail já existe")
+        for e in ProfissionalDAO().listar():
+            if obj.get_email() == e.get_email():
+                raise ValueError("Este e-mail já existe")
+        if obj.get_email() == "admin":
+            raise ValueError("Exclusivo ao administrador")
         ClienteDAO().inserir(obj)
+        
     @staticmethod
     def cliente_listar():
         r = ClienteDAO().listar()
@@ -29,6 +38,10 @@ class Service:
         ClienteDAO().atualizar(obj)
     @staticmethod
     def cliente_excluir(id):
+        obj = Cliente(id)
+        for e in HorarioDAO().listar_id(id):
+            if obj.get_id() == e(id):
+                raise ValueError("Este cliente possui uma consulta agendada")
         ClienteDAO().excluir(id)
     @staticmethod
     def cliente_criar_admin():
@@ -187,6 +200,14 @@ class Service:
     @staticmethod
     def profissional_inserir(nome, email, especialidade, senha):
         obj = Profissional(0, nome, email, especialidade, senha)
+        for e in ClienteDAO().listar():
+            if obj.get_email() == e.get_email():
+                raise ValueError("Este e-mail já existe")
+        for e in ProfissionalDAO().listar():
+            if obj.get_email() == e.get_email():
+                raise ValueError("Este e-mail já existe")
+        if obj.get_email() == "admin":
+            raise ValueError("Exclusivo ao administrador")
         ProfissionalDAO().inserir(obj)
     @staticmethod
     def profissional_listar():
@@ -202,6 +223,10 @@ class Service:
         ProfissionalDAO().atualizar(obj)
     @staticmethod
     def profissional_excluir(id):
+        obj = Profissional(id)
+        for e in HorarioDAO().listar_id(id):
+            if obj.get_id() == e(id):
+                raise ValueError("Este cliente possui uma consulta agendada")
         ProfissionalDAO().excluir(id)
     @staticmethod
     def profissional_autenticar(email, senha):

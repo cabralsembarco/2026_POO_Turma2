@@ -11,7 +11,6 @@ class ManterServicoUI:
         with tab2: ManterServicoUI.inserir()
         with tab3: ManterServicoUI.atualizar()
         with tab4: ManterServicoUI.excluir()
-        
     def listar():
         servicos = Service.servico_listar()
         if len(servicos) == 0: st.write("Nenhum serviço cadastrado")
@@ -27,8 +26,8 @@ class ManterServicoUI:
             try:
                 Service.servico_inserir(descr, float(valor))
                 st.success("Serviço inserido com sucesso")
-            except ValueError as erro:
-                st.error(erro)           
+            except ValueError:
+                st.error("Descrição ou Valor inválido")    
             time.sleep(2)
             st.rerun()
     def atualizar():
@@ -39,12 +38,9 @@ class ManterServicoUI:
             descr = st.text_input("Informe a nova descrição", op.get_descricao())
             valor = st.text_input("Informe o novo valor", str(op.get_valor()))
             if st.button("Atualizar"):
-                try:
-                    id = op.get_id()
-                    Service.servico_atualizar(id, descr, float(valor))
-                    st.success("Serviço atualizado com sucesso")
-                except ValueError as erro:
-                    st.error(erro)
+                id = op.get_id()
+                Service.servico_atualizar(id, descr, float(valor))
+                st.success("Serviço atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()
     def excluir():
@@ -53,11 +49,8 @@ class ManterServicoUI:
         else:
             op = st.selectbox("Exclusão de Serviços", servicos)
             if st.button("Excluir"):
-                try:
-                    id = op.get_id()
-                    Service.servico_excluir(id)
-                    st.success("Serviço excluído com sucesso")
-                except ValueError as erro:
-                    st.error(erro)
+                id = op.get_id()
+                Service.servico_excluir(id)
+                st.success("Serviço excluído com sucesso")
                 time.sleep(2)
                 st.rerun()
