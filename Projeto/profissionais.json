@@ -12,12 +12,5 @@
     "email": "jose@email.com",
     "especialidade": "Infectologista",
     "senha": "1234"
-  },
-  {
-    "id": 3,
-    "nome": "George",
-    "email": "george@email.com",
-    "especialidade": "Oftalmo",
-    "senha": "1234"
   }
 ]
